@@ -9,6 +9,7 @@ function removeButtonAndTitle() {
         $('.findOutButton').remove();
         $('.titleQ').remove();
         renderQuestion();
+        updateQuestionNumber();
     });
 }
 
@@ -24,15 +25,15 @@ function generateQuestion() {
             <span> ${STORE[questionNumber].answers[0]} </span>  
         </label><br>
         <label class="answerOption">
-        <input type="radio" value="${STORE[questionNumber].answers[1]}" name="answer" required>
+        <input type="radio" value="${STORE[questionNumber].answers[1]}" name="answer">
             <span> ${STORE[questionNumber].answers[1]} </span>  
         </label><br>
         <label class="answerOption">
-        <input type="radio" value="${STORE[questionNumber].answers[2]}" name="answer" required>
+        <input type="radio" value="${STORE[questionNumber].answers[2]}" name="answer">
             <span> ${STORE[questionNumber].answers[2]} </span>  
         </label><br>
         <label class="answerOption">
-        <input type="radio" value="${STORE[questionNumber].answers[3]}" name="answer" required>
+        <input type="radio" value="${STORE[questionNumber].answers[3]}" name="answer">
             <span> ${STORE[questionNumber].answers[3]} </span>  
         </label><br>
         <button type="submit" class="submitButton">Submit</button>
@@ -97,7 +98,8 @@ function clickNext() {
 
 //update question number
 function updateQuestionNumber() {
-    console.log('updateQuestionNumber running')
+    console.log('updateQuestionNumber running');
+    $('.updateQuestion').text(questionNumber+1);
 }
 
 
