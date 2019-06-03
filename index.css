@@ -21,7 +21,7 @@ body main {
 ul li {
     list-style: none;
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 5px;
     margin-bottom: 80px;
     margin-top:20px;
 }
@@ -29,22 +29,22 @@ li {
     font-size: 20px;
 }
 
-button.findOutButton  {
-    width: 150px;
-    height: 50px;
-    font-size: 15px;  
-}
-
-button.submitButton, .nextButton .retakeButton{
-    height: 30px;
-    width: 100px;
+button {  
     margin-top: 30px;
-}
-
-button {
+    font-size: 18px; 
     background:rgba(236, 173, 91, 0.7);
     border-radius: 8px;
     border: none; 
+}
+
+button.findOutButton {
+    height: 75px;
+    width: 150px;
+}
+
+button {
+    height: 50px;
+    width: 100px;
 }
 
 button:hover {
@@ -56,7 +56,6 @@ button:hover {
 }
 
 .questionAnswerForm {
-    
     font-size: 20px;
     padding: 30px;
 }
@@ -65,3 +64,54 @@ fieldset {
     border-color: none;
     border-width:0px;
 }
+
+@media only screen and (max-width: 320px) {
+    body main {
+        font-size: 15px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    button.findOutButton {
+        font-size: 10px;
+        height: 50px;
+        width: 100px;
+    }
+
+    button {
+        font-size: 10px;
+        height: 50px;
+        width: 100px; 
+    }
+
+    li {
+        font-size: 15px;
+
+    }
+    ul li {
+        margin-bottom: 15px;
+
+    }
+
+    body main {
+        font-size: 20px;
+    }
+    .homePg h1 {
+        font-size: 20px;
+    }
+    .questionAnswerForm {
+        font-size: 16px;
+        padding: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .questionAnswerForm {
+        font-size: 30px;
+        padding: 10px;
+    }
+    button {
+        font-size: 20px;
+        height: 50px;
+        width: 100px; 
+    }
+  }

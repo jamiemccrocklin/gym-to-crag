@@ -50,7 +50,6 @@ function generateQuestion() {
 //increment questionNumber each time user presses 'submit'
 function incrementQuestionNumber() {
     if(questionNumber < STORE.length) {
-        console.log(questionNumber);
         questionNumber++;
     }
 }
@@ -147,8 +146,5 @@ function createQuiz() {
 
 $(createQuiz);
 
-
-
-//need to make sure that the number counter stops at 10 - went to 11 on last page
 
 
