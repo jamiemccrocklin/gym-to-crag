@@ -1,5 +1,5 @@
  let questionNumber = 0;
-// let score = 0;
+let score = 0;
 
 //when user presses 'Let's find out' button, button and title are removed from page and generateQuestion function
 //is ran
@@ -16,36 +16,42 @@ function removeButtonAndTitle() {
 // generate question
 function generateQuestion() {
     if (questionNumber < STORE.length) {
-    return `<div class="question_${questionNumber}">
-    <h2>${STORE[questionNumber].question}</h2>
-    <form> 
-    <fieldset>
-        <label class="answerOption">
-        <input type="radio" value="${STORE[questionNumber].answers[0]}" name="answer" required>
-            <span> ${STORE[questionNumber].answers[0]} </span>  
-        </label><br>
-        <label class="answerOption">
-        <input type="radio" value="${STORE[questionNumber].answers[1]}" name="answer">
-            <span> ${STORE[questionNumber].answers[1]} </span>  
-        </label><br>
-        <label class="answerOption">
-        <input type="radio" value="${STORE[questionNumber].answers[2]}" name="answer">
-            <span> ${STORE[questionNumber].answers[2]} </span>  
-        </label><br>
-        <label class="answerOption">
-        <input type="radio" value="${STORE[questionNumber].answers[3]}" name="answer">
-            <span> ${STORE[questionNumber].answers[3]} </span>  
-        </label><br>
-        <button type="submit" class="submitButton">Submit</button>
-        </fieldset>
-    </form>
-    </div>`
+        return `<div class="question_${questionNumber}">
+        <h2>${STORE[questionNumber].question}</h2>
+        <form class="form"> 
+        <fieldset>
+            <label class="answerOption">
+            <input type="radio" value="${STORE[questionNumber].answers[0]}" name="answer" required>
+                <span> ${STORE[questionNumber].answers[0]} </span>  
+            </label><br>
+            <label class="answerOption">
+            <input type="radio" value="${STORE[questionNumber].answers[1]}" name="answer">
+                <span> ${STORE[questionNumber].answers[1]} </span>  
+            </label><br>
+            <label class="answerOption">
+            <input type="radio" value="${STORE[questionNumber].answers[2]}" name="answer">
+                <span> ${STORE[questionNumber].answers[2]} </span>  
+            </label><br>
+            <label class="answerOption">
+            <input type="radio" value="${STORE[questionNumber].answers[3]}" name="answer">
+                <span> ${STORE[questionNumber].answers[3]} </span>  
+            </label><br>
+            <button type="submit" class="submitButton">Submit</button>
+            </fieldset>
+        </form>
+        </div>`
+        }
+    else {
+        quizComplete();
+        $('.updateQuestion').text(10);
     };
 }
 
 //increment questionNumber each time user presses 'submit'
 function incrementQuestionNumber() {
-    questionNumber++;
+    if(questionNumber < STORE.length) {
+        questionNumber++;
+    }
 }
 
 //render question in DOM
@@ -55,7 +61,7 @@ function renderQuestion() {
 
 //user presses 'submit', feedback is presented 
 function clickSubmit () {
-    $(document).on('click', '.submitButton', function(event) {
+    $(document).on('submit', '.form', function(event) {
         event.preventDefault();
         let checked = $('input:checked');
         let answer = checked.val();
@@ -72,8 +78,9 @@ function clickSubmit () {
 
 //if answer is correct, present this feedback
 function answerCorrect() {
+    updateScoreNumber();
     return `That\'s right! Nice job! <br>
-    <button type="submit" class= "nextButton">Next</button>`
+    <button type="submit" class= "nextButton">Next</button>`;
 }
 //if answer is incorrect, present this feedback
 function answerIncorrect() {
@@ -91,36 +98,43 @@ function clickNext() {
     })
 }
 
-// // update score
-// function updateScoreNumber() {
-
-// }
+// update score
+function updateScoreNumber() {
+    $('.updateScore').text(score+1);
+    score++;
+}
 
 //update question number
 function updateQuestionNumber() {
-    console.log('updateQuestionNumber running');
     $('.updateQuestion').text(questionNumber+1);
 }
 
 
+//end of quiz - total is displayed
+//if they receive greater than 80%, pass
+//if they receive less than 80%, fail
+function quizComplete() {
+    if (score >= 8) {
+        $('.questionAnswerForm').html(`<h3>Congratulations! You passed! <br>
+        You received a score of ${score}/10. You're ready to head to the crag!<br>
+        <button class="retakeButton" type="submit">Try Again</button>`);
+    }
+    else if (score < 8) {
+        $('.questionAnswerForm').html(`<h3>You scored a ${score}/10. <br>
+        Please try again before heading to the crag.</h3><br>
+        <button class="retakeButton" type="submit">Try Again</button>`);
+    }
+}
 
-// //after the 10th and final question, the total is displayed to the user. 
-// //if the user gets 80% or beter one message, if less than 80% a different message is presented 
-// //generate message for less than 80%
-// function fail() {
+//on click of 'try again' button, the whole quiz is regenerated 
+function retakeQuiz() {
+    $(document).on('click', '.retakeButton', function(event) {
+        location.reload();
+    })
+}
 
-// }
 
-// //generate message for more than 80%
-// function pass() {
-
-// }
-// //on click of 're-take' button, the whole quiz is regenerated 
-// function retakeQuiz() {
-
-// }
 // //place all functions here that runs quiz
-
 function createQuiz() {
     removeButtonAndTitle();
     clickSubmit();
@@ -131,4 +145,6 @@ $(createQuiz);
 
 
 
+//need to make sure that the number counter stops at 10 - went to 11 on last page
+//need to press try again and re-load page 
 

@@ -35,7 +35,7 @@ button.findOutButton  {
     font-size: 15px;  
 }
 
-button.submitButton, .nextButton{
+button.submitButton, .nextButton .retakeButton{
     height: 30px;
     width: 100px;
     margin-top: 30px;
