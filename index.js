@@ -50,6 +50,7 @@ function generateQuestion() {
 //increment questionNumber each time user presses 'submit'
 function incrementQuestionNumber() {
     if(questionNumber < STORE.length) {
+        console.log(questionNumber);
         questionNumber++;
     }
 }
@@ -106,7 +107,9 @@ function updateScoreNumber() {
 
 //update question number
 function updateQuestionNumber() {
+    if (STORE.length > questionNumber) {
     $('.updateQuestion').text(questionNumber+1);
+    }
 }
 
 
@@ -138,7 +141,8 @@ function retakeQuiz() {
 function createQuiz() {
     removeButtonAndTitle();
     clickSubmit();
-    clickNext()
+    clickNext();
+    retakeQuiz();
 }
 
 $(createQuiz);
@@ -146,5 +150,5 @@ $(createQuiz);
 
 
 //need to make sure that the number counter stops at 10 - went to 11 on last page
-//need to press try again and re-load page 
+
 
