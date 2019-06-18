@@ -35,6 +35,7 @@ button {
     background:rgba(236, 173, 91, 0.7);
     border-radius: 8px;
     border: none; 
+    font-family: 'Crimson Text', serif;
 }
 
 button.findOutButton {
