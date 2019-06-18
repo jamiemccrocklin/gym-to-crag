@@ -40,9 +40,9 @@ const STORE = [
     },
     {
         question: 'Which of the following statements about group sizing is NOT true?',
-        answers: ['Let other people work into climbs you are on.', 'Spread your group apart - not everyone should be in line for the same climb. Split up in pairs.',
-    'The philosophy on group sizing is: "The more, the merrier!"', 'Large groups can lead to a noisy and disruptive crag.'],
-        correctAnswer: 'The philosophy on group sizing is: "The more, the merrier!"'
+        answers: ['Let other people work into climbs you are on.', 'Spread your group apart - not everyone should be in line for the same climb. Split up in pairs.', 
+        'The philosophy on group sizing is: \"The more, the merrier!\"', 'Large groups can lead to a noisy and disruptive crag.'],
+        correctAnswer: 'The philosophy on group sizing is: \"The more, the merrier!\"'
     },
     {
         question: 'Which of the following statements about trails is TRUE?',
