@@ -1,4 +1,4 @@
- let questionNumber = 0;
+let questionNumber = 0;
 let score = 0;
 
 //when user presses 'Let's find out' button, button and title are removed from page and generateQuestion function
@@ -72,6 +72,8 @@ function clickSubmit () {
         else {
             $('.questionAnswerForm').html(answerIncorrect());
         }
+        console.log(answer);
+        console.log(correctAnswer);
     incrementQuestionNumber();
     });
 }
@@ -79,12 +81,12 @@ function clickSubmit () {
 //if answer is correct, present this feedback
 function answerCorrect() {
     updateScoreNumber();
-    return `That\'s right! Nice job! <br>
+    return `<div class="result"> That\'s right! Nice job! <br></div>
     <button type="submit" class= "nextButton">Next</button>`;
 }
 //if answer is incorrect, present this feedback
 function answerIncorrect() {
-    return `Sorry, that\'s incorrect. The correct answer was: <br> "${STORE[questionNumber].correctAnswer}" <br>
+    return `<div class="result">Sorry, that\'s incorrect. The correct answer was: <br> "${STORE[questionNumber].correctAnswer}" <br></div>
     <button type="submit" class= "nextButton">Next</button>`
     
 }
@@ -117,12 +119,12 @@ function updateQuestionNumber() {
 //if they receive less than 80%, fail
 function quizComplete() {
     if (score >= 8) {
-        $('.questionAnswerForm').html(`<h3>Congratulations! You passed! <br>
+        $('.questionAnswerForm').html(`<h3 class="score">Congratulations! You passed! <br>
         You received a score of ${score}/10. You're ready to head to the crag!<br>
         <button class="retakeButton" type="submit">Try Again</button>`);
     }
     else if (score < 8) {
-        $('.questionAnswerForm').html(`<h3>You scored a ${score}/10. <br>
+        $('.questionAnswerForm').html(`<h3 class="score">You scored a ${score}/10. <br>
         Please try again before heading to the crag.</h3><br>
         <button class="retakeButton" type="submit">Try Again</button>`);
     }

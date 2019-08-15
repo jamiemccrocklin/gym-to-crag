@@ -13,8 +13,8 @@ body {
 
 body main {
     padding: 10px;
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 30px;
+    margin-left: 30px;
     background:rgba(248, 248, 246, 0.7);
 }
 
@@ -22,7 +22,7 @@ ul li {
     list-style: none;
     display: inline-block;
     margin-left: 5px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     margin-top:20px;
 }
 li {
@@ -39,8 +39,9 @@ button {
 }
 
 button.findOutButton {
-    height: 75px;
-    width: 150px;
+    height: 55px;
+    width: 130px;
+    font-size: 18px;
 }
 
 button {
@@ -53,12 +54,16 @@ button:hover {
 }
 
 .homePg h1 {
-    font-size: 45px;
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 25px;
 }
 
 .questionAnswerForm {
     font-size: 20px;
-    padding: 30px;
+    padding: 10px;
 }
 
 fieldset {
@@ -66,53 +71,109 @@ fieldset {
     border-width:0px;
 }
 
-@media only screen and (max-width: 320px) {
-    body main {
-        font-size: 15px;
-        margin-right: 10px;
-        margin-left: 10px;
-    }
-    button.findOutButton {
-        font-size: 10px;
-        height: 50px;
-        width: 100px;
+
+  /* Desktop computers */
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    .homePg h1 {
+        font-size: 45px;
     }
 
-    button {
-        font-size: 10px;
-        height: 50px;
-        width: 100px; 
+    ul li {
+        margin-bottom: 80px;
+    }
+
+    button.findOutButton {
+        height: 75px;
+        width: 150px;
+        /* font-size: 15px; */
+    }
+
+    body main {
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+    .questionAnswerForm {
+        font-size: 20px;
+        padding: 30px;
+    }
+
+}
+
+
+/* iPads */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .homePg h1 {
+        font-size: 45px;
+    }
+
+    ul li {
+        margin-bottom: 80px;
     }
 
     li {
-        font-size: 15px;
-
+        font-size: 30px;
     }
-    ul li {
-        margin-bottom: 15px;
 
+    button.findOutButton {
+        height: 75px;
+        width: 200px;
+        font-size: 25px;
     }
 
     body main {
-        font-size: 20px;
-    }
-    .homePg h1 {
-        font-size: 20px;
+        margin-right: 100px;
+        margin-left: 100px;
     }
     .questionAnswerForm {
-        font-size: 16px;
-        padding: 10px;
+        font-size: 20px;
+        padding: 30px;
     }
-  }
 
-  @media only screen and (max-width: 768px) {
-    .questionAnswerForm {
+    h2 {
+        font-size: 40px;
+    }
+
+    .answerOption {
         font-size: 30px;
-        padding: 10px;
     }
-    button {
-        font-size: 20px;
-        height: 50px;
-        width: 100px; 
+
+    .submitButton, .nextButton {
+        font-size: 25px;
+        height: 70px;
+        width: 150px;
     }
-  }
+
+    .result, .score {
+        font-size: 30px;
+    }
+}
+
+/* wider iPhones */
+@media screen and (min-width: 375px) and (max-width: 414px) {
+
+}
+
+/* Extra large screens */    
+@media screen and (min-width: 1919px) {
+
+
+}
+
+/* iphone 5 */
+@media screen and (max-width: 320px) {
+    .homePg h1 {
+        font-size: 30px;
+    }
+
+    body main {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+    ul li {
+        margin-bottom: 20px;
+        margin-top:20px;
+    }
+
+}
+
